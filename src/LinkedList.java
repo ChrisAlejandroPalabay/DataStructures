@@ -17,6 +17,7 @@ public class LinkedList {
                  temp = temp.next;
             }
             temp.next = node;
+
         }
     }
 
@@ -35,6 +36,7 @@ public class LinkedList {
             }
             node.next = temp.next;
             temp.next = node;
+
         }
     }
 
@@ -50,6 +52,7 @@ public class LinkedList {
             t1 = node.next;
             node.next = t1.next;
             t1 = null;
+
 
         }
     }
