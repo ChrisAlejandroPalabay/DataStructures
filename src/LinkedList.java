@@ -5,8 +5,6 @@
 public class LinkedList {
     Node head;
 
-
-
     public void insert(int data){
         Node node = new Node();
         node.data = data;
@@ -14,15 +12,15 @@ public class LinkedList {
         if(head == null){
             head = node;
         }else{
-            Node n = head;
-            while(n.next != null){
-                n = n.next;
+            Node temp = head;
+            while (temp.next != null){
+                 temp = temp.next;
             }
-            n.next = node;
+            temp.next = node;
         }
     }
 
-    public void insertAtindex(int index,int data){
+    public void insertAt(int index, int data){
         Node node = new Node();
         node.data = data;
         node.next = null;
@@ -30,38 +28,43 @@ public class LinkedList {
         if(index == 0){
             node.next = head;
             head = node;
-
-        }else {
-            Node n = head;
-            for(int i=0;i<index-1;i++){
-                n = n.next;
+        }else{
+            Node temp = head;
+            for (int i=0;i<index-1;i++){
+                temp = temp.next;
             }
-           node.next = n.next;
-            n.next = node;
+            node.next = temp.next;
+            temp.next = node;
         }
     }
+
     public void removeAt(int index){
+        if(index == 0){
+            head = head.next;
+        }else{
+            Node node = head;
+            Node t1 = null;
+            for(int i=0;i<index-1;i++){
+                node = node.next;
+            }
+            t1 = node.next;
+            node.next = t1.next;
+            t1 = null;
 
-        Node temp = head;
-        Node t1 = null;
-        for(int i=0;i<index-1;i++){
-            temp = temp.next;
         }
-        t1 = temp.next;
-        temp.next = t1.next;
-        t1 = null;
-
     }
-
     public void displayList(){
         Node node = head;
-        while (node != null){
+        while(node != null){
             System.out.println(node.data);
             node = node.next;
         }
     }
 
-   }
+}
+
+
+
 
 
 

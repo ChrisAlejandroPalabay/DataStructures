@@ -7,12 +7,10 @@ public class Main {
 
 
         list.insert(888);//0
-        list.insert(2);//1
         list.insert(888);//2
+        list.insertAt(1,67);
         list.insert(888);//3
-        list.insertAtindex(4,11);
-        list.removeAt(1);
-
+        list.removeAt(2);
         list.displayList();
 
     }
