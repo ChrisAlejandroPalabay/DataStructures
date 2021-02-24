@@ -6,36 +6,36 @@ public class LinkedList {
     Node head;
 
     public void insert(int data){
-        Node node = new Node();
-        node.data = data;
-        node.next = null;
+        Node Node = new Node();
+        Node.data = data;
+        Node.next = null;
         if(head == null){
-            head = node;
+            head = Node;
         }else{
             Node temp = head;
             while (temp.next != null){
                  temp = temp.next;
             }
-            temp.next = node;
+            temp.next = Node;
 
         }
     }
 
     public void insertAt(int index, int data){
-        Node node = new Node();
-        node.data = data;
-        node.next = null;
+        Node Node = new Node();
+        Node.data = data;
+        Node.next = null;
 
         if(index == 0){
-            node.next = head;
-            head = node;
+            Node.next = head;
+            head = Node;
         }else{
             Node temp = head;
             for (int i=0;i<index-1;i++){
                 temp = temp.next;
             }
-            node.next = temp.next;
-            temp.next = node;
+            Node.next = temp.next;
+            temp.next = Node;
 
         }
     }
@@ -44,23 +44,23 @@ public class LinkedList {
         if(index == 0){
             head = head.next;
         }else{
-            Node node = head;
+            Node Node = head;
             Node t1 = null;
             for(int i=0;i<index-1;i++){
-                node = node.next;
+                Node = Node.next;
             }
-            t1 = node.next;
-            node.next = t1.next;
+            t1 = Node.next;
+            Node.next = t1.next;
             t1 = null;
 
 
         }
     }
     public void displayList(){
-        Node node = head;
-        while(node != null){
-            System.out.println(node.data);
-            node = node.next;
+        Node Node = head;
+        while(Node != null){
+            System.out.println(Node.data);
+            Node = Node.next;
         }
     }
 
