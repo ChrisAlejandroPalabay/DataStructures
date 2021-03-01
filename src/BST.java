@@ -40,9 +40,35 @@ public class BST {
         }else {
             if (node.left == null || node.right == null){
 
+                BSTNode temp = null;
+                temp = node.left == null ? node.right : node.left;
+
+                if(temp == null){
+                    return null;
+                }else{
+                    return node;
+                }
+            }else {
+                BSTNode successor = getSuccessor(node);
+                node.data = successor.data;
+                node.right = deleteNode(node.right,4);
             }
+
         }
-        return null;
+        return node;
+    }
+
+    public BSTNode getSuccessor(BSTNode node){
+        if(node == null){
+            return null;
+        }
+         BSTNode temp =  node.right;
+
+        while(temp != null){
+
+            temp = temp.left;
+        }
+        return temp;
     }
 
     public void printInorder(BSTNode node){
