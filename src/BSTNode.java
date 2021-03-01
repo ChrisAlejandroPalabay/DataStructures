@@ -3,8 +3,7 @@ public class BSTNode {
     public BSTNode left;
     public BSTNode right;
 
-    public BSTNode(int data){
-        this.data = data;
+    public BSTNode(){
 
     }
 }
