@@ -6,11 +6,8 @@ public class Main {
 
         BinarySearchTree tree = new BinarySearchTree();
 
-        tree.add(30);
-        tree.add(12);
-        tree.add(21);
-
-        System.out.println(tree.root.left.data);
+        
+        tree.traverse();
 
     }
 }
