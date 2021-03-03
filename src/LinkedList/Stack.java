@@ -1,3 +1,5 @@
+package LinkedList;
+
 public class Stack {
 
     int stack[] = new int[5];
