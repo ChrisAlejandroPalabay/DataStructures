@@ -29,17 +29,21 @@ public class BinarySearchTree {
         }
     }
     public void traverse(){
-        if(root == null){
-            System.out.println("tree empty");
-        }else{
-            Node nodeToTraverse = root;
 
-            if(nodeToTraverse.left != null){
-                inOrderTraverse(nodeToTraverse.left);
-            }else{
+        if(root != null) {
+            Node nodeToTraverse = root;
+            if (nodeToTraverse.left == null && nodeToTraverse.right == null) {
                 System.out.println(nodeToTraverse.data);
+            }else {
+                if (nodeToTraverse.left != null) {
+                    inOrderTraverse(nodeToTraverse.left);
+                }
+                if (nodeToTraverse.right != null) {
+                    inOrderTraverse(nodeToTraverse.right);
+                }
             }
         }
+
     }
     private void inOrderTraverse(Node node){
 
