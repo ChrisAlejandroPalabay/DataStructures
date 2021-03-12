@@ -1,18 +1,23 @@
 package LinkedList;
 
+import java.util.ArrayList;
+
 public class Main {
 
     public static void main(String[] args){
 
-        Person person = new Person();
-        Person person1 = new Person();
+        ArrayList<Person> people = new ArrayList<Person>();
 
-        LinkedList<Person> people = new LinkedList<Person>();
+        people.add(new Person("Ac"));
+        people.add(new Person("Aaunds"));
+        people.add(new Person("draku"));
 
-        person.setName("Ac");
-        person1.setName("Aundrea");
 
-        System.out.println(person.getname());
+        System.out.println();
+       for (int i=0;i<people.size();i++) {
+           System.out.println(people.get(i));
+       }
+
 
 
     }

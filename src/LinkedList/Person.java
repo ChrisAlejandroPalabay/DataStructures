@@ -5,6 +5,9 @@ public class Person {
 
 
     public Person(){
+    }
+
+    public Person(String name){
         this.name = name;
     }
 
@@ -15,5 +18,9 @@ public class Person {
         return name;
     }
 
+    @Override
+    public String toString() {
+        return "Name = "+name;
+    }
 }
 
