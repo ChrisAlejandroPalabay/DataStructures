@@ -62,6 +62,21 @@ public class LinkedList<T> {
             Node = Node.next;
         }
     }
+    public void secInsertAt(T data){
+        Node<T> node = new Node();
+        node.data = data;
+        node.next = null;
+        if(head == null){
+            head = node;
+        }else {
+            Node temp = head;
+            while (temp.next != null){
+                temp = temp.next;
+            }
+            node.next = temp.next;
+            temp.next = node;
+        }
+    }
 
 }
 
