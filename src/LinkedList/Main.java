@@ -1,24 +1,15 @@
 package LinkedList;
 
-import java.util.ArrayList;
-
 public class Main {
 
     public static void main(String[] args){
 
-        ArrayList<Person> people = new ArrayList<Person>();
+        LinkedList<Person> people = new LinkedList<Person>();
 
-        people.add(new Person("Ac"));
-        people.add(new Person("Aaunds"));
-        people.add(new Person("draku"));
+        people.insert(new Person("Ac"));
+        people.insert(new Person("Aundrea"));
 
-
-        System.out.println();
-       for (int i=0;i<people.size();i++) {
-           System.out.println(people.get(i));
-       }
-
-
+        people.displayList();
 
     }
 }

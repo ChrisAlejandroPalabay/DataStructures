@@ -1,10 +1,10 @@
 package LinkedList;
 
 
-public class LinkedList {
-    Node head;
+public class LinkedList<T> {
+    Node<T> head;
 
-    public void insert(int data){
+    public void insert(T data){
         Node Node = new Node();
         Node.data = data;
         Node.next = null;
