@@ -11,6 +11,6 @@ public class Main {
         familyTree.add(new FamilyMember("Nicole",23));
         familyTree.add(new FamilyMember("Wong",24));
 
-        familyTree.printTree(familyTree.traverse());
+        familyTree.printTree();
     }
 }

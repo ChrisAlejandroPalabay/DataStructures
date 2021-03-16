@@ -11,49 +11,13 @@ public class BinarySearchTree<T> {
         Node nodeToAdd = new Node(data);
         binaryTreeNode.add(nodeToAdd);
     }
-    public void printTree(List list){
-        List listToPrint = list;
-        if(list == null){
-            System.out.println("Empty");
-        }else {
-            for (int i=0;i<listToPrint.size();i++){
-                System.out.println(listToPrint.get(i));
-            }
-        }
 
-
-    }
-    public List traverse(){
-        List<Node> newList = new ArrayList();
-        if(binaryTreeNode == null || binaryTreeNode.size() <= 1){
-            System.out.println("There are no nodes in the tree");
-        }else{
-            int size = binaryTreeNode.size();
-            for (int i=1;i < size;i++){
-                for (int j=2;j < size;j++){
-                    if(binaryTreeNode.get(i) != null && binaryTreeNode.get(j) != null){
-                        newList = compare(binaryTreeNode.get(i),binaryTreeNode.get(j));
-                    }else {
-                        return newList;
-                    }
-                }
-            }
-
+    public void printTree(){
+        for(int i =0;i<binaryTreeNode.size();i++){
+            System.out.println(binaryTreeNode.get(i).data);
         }
-        return newList;
     }
-    private List compare(Node num1,Node num2){
-        int index = 1;
-        List<Node> newList = new ArrayList();
-        if((Integer)num1.data < (Integer)num2.data){
-            newList.set(index,num1);
-            newList.set(index+1,num2);
-        }else {
-            newList.set(index,num2);
-            newList.set(index+1,num1);
-        }
-        return newList;
-    }
+
 
 /**
     private void traverseAndAdd(Node traverseNode, Node nodeToAdd){

@@ -15,6 +15,6 @@ public class FamilyMember {
 
     @Override
     public String toString() {
-        return String.valueOf(age);
+        return "\nName :" + firstName + "\nAge: " + age;
     }
 }
