@@ -17,6 +17,20 @@ public class BinarySearchTree<T> {
             System.out.println(binaryTreeNode.get(i).data);
         }
     }
+    public void traverse(Node toTraverse){
+        if(binaryTreeNode != null){
+            head = binaryTreeNode.get(0);
+            toTraverse = head;
+            if(toTraverse.left != null){
+                traverse(toTraverse.left);
+            }
+            if(toTraverse.right != null){
+                traverse(toTraverse.right);
+            }
+        }else {
+            System.out.println("Tree Empty");
+        }
+    }
 
 
 /**
