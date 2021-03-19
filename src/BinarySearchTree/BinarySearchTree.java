@@ -9,7 +9,17 @@ public class BinarySearchTree<T> {
 
     public void add(T data){
         Node nodeToAdd = new Node(data);
+        traverseAndAdd(head,nodeToAdd);
+        /**
+        Node nodeToAdd = new Node(data);
         binaryTreeNode.add(nodeToAdd);
+        if(binaryTreeNode == null){
+            head = binaryTreeNode.get(0);
+        }else {
+            traverse(head,nodeToAdd);
+        }
+         ***/
+
     }
 
     public void printTree(){
@@ -17,20 +27,26 @@ public class BinarySearchTree<T> {
             System.out.println(binaryTreeNode.get(i).data);
         }
     }
-    public void traverse(Node toTraverse){
-        if(binaryTreeNode != null){
-            head = binaryTreeNode.get(0);
-            toTraverse = head;
+    public void traverseAndAdd(Node toTraverse, Node toadd){
             if(toTraverse.left != null){
-                traverse(toTraverse.left);
+                traverseAndAdd(toTraverse.left,toadd);
+            }
+            if(toTraverse.left == null) {
+                binaryTreeNode.add(toadd);
+                toTraverse.left = binaryTreeNode.get(binaryTreeNode.size());
             }
             if(toTraverse.right != null){
-                traverse(toTraverse.right);
+                traverseAndAdd(toTraverse.right,toadd);
             }
+            if(toTraverse.right == null){
+                binaryTreeNode.add(toadd);
+                toTraverse.right = binaryTreeNode.get(binaryTreeNode.size());
         }else {
             System.out.println("Tree Empty");
         }
     }
+
+
 
 
 /**
