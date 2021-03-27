@@ -46,10 +46,7 @@ public class BinarySearchTree<T> {
         }
     }
 
-
-
-
-/**
+    
     private void traverseAndAdd(Node traverseNode, Node nodeToAdd){
         if(nodeToAdd.data < traverseNode.data){
 
