@@ -1,96 +1,56 @@
 package BinarySearchTree;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class BinarySearchTree<T> {
-    public Node head;
-    public List<Node> binaryTreeNode = new ArrayList<>();
+    public Node<T> head;
 
-    public void add(T data){
-        Node nodeToAdd = new Node(data);
-        traverseAndAdd(head,nodeToAdd);
-        /**
-        Node nodeToAdd = new Node(data);
-        binaryTreeNode.add(nodeToAdd);
-        if(binaryTreeNode == null){
-            head = binaryTreeNode.get(0);
+
+    public void traverseAdd(Node<T> currNode,T data){
+        Node temp = new Node(data);
+        Node toAdd = temp;
+        if(head == null){
+            head = toAdd;
         }else {
-            traverse(head,nodeToAdd);
-        }
-         ***/
+            if(currNode.left != null) {
+                traverseAdd(currNode.left, data);
+            }
+            if(currNode.left == null){
+                currNode = toAdd;
+            }
 
+            if(currNode.right != null){
+                traverseAdd(currNode.right,data);
+            }
+            if(currNode.right == null ){
+                currNode.right = toAdd;
+            }
+        }
     }
 
-    public void printTree(){
-        for(int i =0;i<binaryTreeNode.size();i++){
-            System.out.println(binaryTreeNode.get(i).data);
-        }
-    }
-    public void traverseAndAdd(Node toTraverse, Node toadd){
-            if(toTraverse.left != null){
-                traverseAndAdd(toTraverse.left,toadd);
-            }
-            if(toTraverse.left == null) {
-                binaryTreeNode.add(toadd);
-                toTraverse.left = binaryTreeNode.get(binaryTreeNode.size());
-            }
-            if(toTraverse.right != null){
-                traverseAndAdd(toTraverse.right,toadd);
-            }
-            if(toTraverse.right == null){
-                binaryTreeNode.add(toadd);
-                toTraverse.right = binaryTreeNode.get(binaryTreeNode.size());
+
+    public void print(){
+        if(head != null){
+            printValues(head);
         }else {
-            System.out.println("Tree Empty");
-        }
-    }
-
-    
-    private void traverseAndAdd(Node traverseNode, Node nodeToAdd){
-        if(nodeToAdd.data < traverseNode.data){
-
-            if(traverseNode.left == null){
-                traverseNode.left = nodeToAdd;
-            }else {
-                traverseAndAdd(traverseNode.left,nodeToAdd);
-            }
-        }else if(nodeToAdd.data > traverseNode.data){
-
-            if(traverseNode.right == null){
-                traverseNode.right = nodeToAdd;
-            }else {
-                traverseAndAdd(traverseNode.right,nodeToAdd);
-            }
-        }
-    }
-    public void traverse(){
-
-        if(root != null) {
-            Node nodeToTraverse = root;
-            if (nodeToTraverse.left == null && nodeToTraverse.right == null) {
-                System.out.println(nodeToTraverse.data);
-            }else {
-                if (nodeToTraverse.left != null) {
-                    inOrderTraverse(nodeToTraverse.left);
-                }
-                if (nodeToTraverse.right != null) {
-                    inOrderTraverse(nodeToTraverse.right);
-                }
-            }
+            System.out.println("Empty");
         }
 
     }
-    private void inOrderTraverse(Node node){
 
-        if(node.left != null){
-            inOrderTraverse(node.left);
+    private void printValues(Node curr){
+        if(curr.left != null){
+            printValues(curr.left);
         }
-        System.out.println(node.data);
-
-        if(node.right != null){
-            inOrderTraverse(node.right);
+        if(curr.left == null){
+            System.out.println(curr.data);
+        }
+        if (curr.right != null){
+            printValues(curr.right);
+        }
+        if (curr.right == null){
+            System.out.println(curr.data);
         }
     }
- **/
+
+
 }
