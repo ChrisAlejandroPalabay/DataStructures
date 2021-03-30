@@ -13,6 +13,6 @@ public class Main {
         familyTree.traverseAdd(familyTree.head,new FamilyMember("Aundrea",21));
         familyTree.traverseAdd(familyTree.head,new FamilyMember("Nicole",21));
 
-        System.out.println(familyTree.head.left);
+        System.out.println(familyTree.head.left.data);
     }
 }

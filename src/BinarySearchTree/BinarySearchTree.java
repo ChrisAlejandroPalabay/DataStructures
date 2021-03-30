@@ -13,15 +13,11 @@ public class BinarySearchTree<T> {
         }else {
             if(currNode.left != null) {
                 traverseAdd(currNode.left, data);
-            }
-            if(currNode.left == null){
-                currNode = toAdd;
-            }
-
-            if(currNode.right != null){
+            }else if(currNode.left == null){
+                currNode.left = toAdd;
+            }else if(currNode.right != null){
                 traverseAdd(currNode.right,data);
-            }
-            if(currNode.right == null ){
+            }else if(currNode.right == null ){
                 currNode.right = toAdd;
             }
         }
