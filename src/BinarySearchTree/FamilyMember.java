@@ -4,6 +4,9 @@ public class FamilyMember {
     public String firstName;
     public int age;
 
+    public FamilyMember(){
+
+    }
     public FamilyMember(String fname, int age){
         this.firstName = fname;
         this.age = age;

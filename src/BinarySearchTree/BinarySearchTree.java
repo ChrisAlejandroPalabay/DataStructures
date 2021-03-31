@@ -1,6 +1,8 @@
 package BinarySearchTree;
 
 
+import java.util.ArrayList;
+
 public class BinarySearchTree<T> {
     public Node<T> head;
 
@@ -46,6 +48,13 @@ public class BinarySearchTree<T> {
         if (curr.right == null){
             System.out.println(curr.data);
         }
+    }
+
+    public void printTree(){
+        ArrayList<T>list = new ArrayList<>();
+        Node[] node = new Node[10];
+        node[0] = head.left;
+
     }
 
 
