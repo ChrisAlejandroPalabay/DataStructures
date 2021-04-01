@@ -49,7 +49,7 @@ public class BinarySearchTree<T> {
         if(curr.right != null){
             printValues(curr.right);
         }
-        
+
     }
 
 

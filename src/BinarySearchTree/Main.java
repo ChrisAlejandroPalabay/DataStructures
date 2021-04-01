@@ -11,8 +11,10 @@ public class Main {
 
         familyTree.traverseAdd(new FamilyMember("ac",21));
         familyTree.traverseAdd(new FamilyMember("Aundrea",21));
-        familyTree.traverseAdd(new FamilyMember("Nicole",21));
+        familyTree.traverseAdd(new FamilyMember("Nico",21));
+        familyTree.traverseAdd(new FamilyMember("cole",21));
+        familyTree.traverseAdd(new FamilyMember("ole",21));
 
-        familyTree.print();
+        System.out.println(familyTree.head.left.data);
     }
 }
