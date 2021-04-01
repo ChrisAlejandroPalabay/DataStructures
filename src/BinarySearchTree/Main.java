@@ -9,9 +9,9 @@ public class Main {
         BinarySearchTree<FamilyMember> familyTree = new BinarySearchTree();
 
 
-        familyTree.traverseAdd(familyTree.head,new FamilyMember("ac",21));
-        familyTree.traverseAdd(familyTree.head,new FamilyMember("Aundrea",21));
-        familyTree.traverseAdd(familyTree.head,new FamilyMember("Nicole",21));
+        familyTree.traverseAdd(new FamilyMember("ac",21));
+        familyTree.traverseAdd(new FamilyMember("Aundrea",21));
+        familyTree.traverseAdd(new FamilyMember("Nicole",21));
 
         familyTree.print();
     }

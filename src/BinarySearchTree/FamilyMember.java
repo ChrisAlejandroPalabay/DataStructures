@@ -18,6 +18,6 @@ public class FamilyMember {
 
     @Override
     public String toString() {
-        return "\nName :" + firstName + "\nAge: " + age;
+        return "Name :" + firstName;
     }
 }
