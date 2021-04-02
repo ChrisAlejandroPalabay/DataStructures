@@ -4,14 +4,10 @@ public class Main {
 
     public static void main(String[] args) {
 
+        Graph test = new Graph(4);
 
-        Graph graph = new Graph(10);
-        graph.addEdge(1,1);
-        graph.addEdge(4,5);
-        graph.addEdge(6,7);
-        graph.addEdge(8,9);
-
-        graph.print();
-
+        test.addEdge(1,2);
+        test.addEdge(2,3);
+        test.displayGraph();
     }
 }
