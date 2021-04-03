@@ -6,8 +6,8 @@ public class Main {
 
         Graph test = new Graph(4);
 
-        test.addEdge(1,2);
-        test.addEdge(2,3);
+        test.addConnection(1,2);
+        test.addConnection(2,3);
         test.displayGraph();
     }
 }

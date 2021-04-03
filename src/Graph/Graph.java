@@ -3,6 +3,59 @@ package Graph;
 
 import java.util.LinkedList;
 
+public class Graph{
+    int vertices;
+    LinkedList<Integer> list[];
+
+    public Graph(int vertices){
+        this.vertices = vertices;
+        list = new LinkedList[vertices];
+        for (int i=0;i < vertices;i++){
+            list[i] = new LinkedList<>();
+        }
+    }
+
+
+
+    public void addConnection(int source, int destination){
+        list[source].add(destination);
+        list[destination].add(source);
+    }
+
+    public void displayGraph(){
+        for (int i=0;i < vertices;i++){
+            if(list[i].size() > 0){
+                System.out.println("Vertex " + i + " is connected to ");
+                for(int j=0;j < list[i].size();j++){
+                    System.out.println(list[i].get(j));
+                }
+            }
+        }
+    }
+
+    private int getIndexNumber(Node node){
+        int index = 0 ;
+        for (int i=0;i < vertices;i++){
+            if(node.data == list[i]){
+                index++;
+            }
+        }
+        return index;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/**
 public class Graph {
 
     int vertices;
@@ -35,3 +88,4 @@ public class Graph {
 
 
 }
+ ***/
