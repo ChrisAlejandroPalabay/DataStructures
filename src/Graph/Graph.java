@@ -4,28 +4,27 @@ package Graph;
 import java.util.LinkedList;
 
 public class Graph{
+
     int vertices;
-    LinkedList<Integer> list[];
+    LinkedList<Node> list[];
 
     public Graph(int vertices){
         this.vertices = vertices;
         list = new LinkedList[vertices];
-        for (int i=0;i < vertices;i++){
-            list[i] = new LinkedList<>();
+        for(int i=0;i < vertices;i++){
+            list[i] = new LinkedList<Node>();
         }
     }
 
-
-
-    public void addConnection(int source, int destination){
-        list[source].add(destination);
-        list[destination].add(source);
+    public void addEdge(Node s, Node d){
+        list[getIndex(list,s)].add(d);
+        list[getIndex(list,d)].add(s);
     }
 
     public void displayGraph(){
-        for (int i=0;i < vertices;i++){
+        for(int i=0;i < list.length;i++){
+            System.out.println(list[i]+" is connected to ");
             if(list[i].size() > 0){
-                System.out.println("Vertex " + i + " is connected to ");
                 for(int j=0;j < list[i].size();j++){
                     System.out.println(list[i].get(j));
                 }
@@ -33,11 +32,12 @@ public class Graph{
         }
     }
 
-    private int getIndexNumber(Node node){
-        int index = 0 ;
-        for (int i=0;i < vertices;i++){
-            if(node.data == list[i]){
-                index++;
+
+    public int getIndex(LinkedList<Node> arrayNode[],Node node){
+        int index = 0;
+        for(int i=0;i<arrayNode.length;i++){
+            if(arrayNode[i].get(i) == node.data ){
+                index = i;
             }
         }
         return index;
