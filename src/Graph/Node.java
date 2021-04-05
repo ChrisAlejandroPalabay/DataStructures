@@ -7,9 +7,9 @@ public class Node<T> {
         this.data = data;
     }
 
-
-
-
+    public T displayContent(){
+        return data;
+    }
 
 
 }
