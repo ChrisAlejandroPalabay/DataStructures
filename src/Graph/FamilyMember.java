@@ -6,7 +6,7 @@ public class FamilyMember {
     public FamilyMember(){
 
     }
-    public FamilyMember(String fname, int age){
+    public FamilyMember(String fname){
         this.firstName = fname;
     }
 

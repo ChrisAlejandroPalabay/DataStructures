@@ -17,19 +17,31 @@ public class Graph {
         adjlist.add(branch);
     }
 
-    public void addRelation(Node source, Node destination){
-        for(int i=0; i < adjlist.size();i++){
-            if(adjlist.get(i).get(0).data == source.data){
-                adjlist.get(i).add(destination);
+    public void addRelation(String name, String destination){
+        for(int i=0;i < adjlist.size();i++){
+            if("Ac" == name ){
+                adjlist.get(i).add(new Node(new FamilyMember(destination)));
             }
         }
+
     }
 
     public void displayGraph(){
+
+        if(adjlist.get(0).get(0).data == "Name :Ac"){
+            System.out.println(adjlist.get(0).get(0).data);
+            System.out.println(adjlist.get(0).get(1).data);
+        }else {
+            System.out.println("Wrong conditoion");
+        }
+
+
+       /***
         for(int i=0;i<adjlist.size();i++){
             for(int j=0;j<adjlist.get(i).size();j++){
                 System.out.println("Vertex: " + adjlist.get(i).get(j).data+" is connected to" + adjlist.get(i).get(j+1).data);
             }
         }
+        */
     }
 }
