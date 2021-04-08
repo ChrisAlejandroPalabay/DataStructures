@@ -1,9 +1,50 @@
 package Graph;
 
 
-import java.util.ArrayList;
+
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
 
 public class Graph<T> {
+
+    HashMap<T , List<T>> graph = new HashMap<T, List<T>>();
+
+    public void addVertex(T node){
+        graph.put(node,new LinkedList<T>());
+    }
+
+    public void addEdge(T source, T destination, boolean biDirectional) {
+        if (!graph.containsKey(source)) {
+            addVertex(source);
+        }
+
+        if (!graph.containsKey(destination)) {
+            addVertex(destination);
+        }
+
+        graph.get(source).add(destination);
+        if(biDirectional == true) {
+            graph.get(destination).add(source);
+        }
+    }
+
+    public void printGraph(){
+        System.out.println(graph);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+    /**
     ArrayList<ArrayList<Node>> adjlist;
 
 
@@ -30,4 +71,5 @@ public class Graph<T> {
         System.out.println(adjlist.get(0).get(0));
         System.out.println(adjlist.get(0).get(1));
     }
+     **/
 }
