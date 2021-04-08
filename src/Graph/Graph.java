@@ -3,7 +3,7 @@ package Graph;
 
 import java.util.ArrayList;
 
-public class Graph {
+public class Graph<T> {
     ArrayList<ArrayList<Node>> adjlist;
 
 
@@ -17,31 +17,17 @@ public class Graph {
         adjlist.add(branch);
     }
 
-    public void addRelation(String name, String destination){
+    public void addRelation(T source, T destination){
         for(int i=0;i < adjlist.size();i++){
-            if("Ac" == name ){
-                adjlist.get(i).add(new Node(new FamilyMember(destination)));
+            if(adjlist.get(i).get(0).data == source ){
+                adjlist.get(i).add(new Node(destination));
             }
         }
 
     }
 
     public void displayGraph(){
-
-        if(adjlist.get(0).get(0).data == "Name :Ac"){
-            System.out.println(adjlist.get(0).get(0).data);
-            System.out.println(adjlist.get(0).get(1).data);
-        }else {
-            System.out.println("Wrong conditoion");
-        }
-
-
-       /***
-        for(int i=0;i<adjlist.size();i++){
-            for(int j=0;j<adjlist.get(i).size();j++){
-                System.out.println("Vertex: " + adjlist.get(i).get(j).data+" is connected to" + adjlist.get(i).get(j+1).data);
-            }
-        }
-        */
+        System.out.println(adjlist.get(0).get(0));
+        System.out.println(adjlist.get(0).get(1));
     }
 }
