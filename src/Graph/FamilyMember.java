@@ -11,6 +11,6 @@ public class FamilyMember {
 
     @Override
     public String toString() {
-        return "Name :" + firstName;
+        return firstName;
     }
 }

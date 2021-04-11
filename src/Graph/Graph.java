@@ -4,34 +4,22 @@ package Graph;
 
 import java.util.HashMap;
 import java.util.LinkedList;
-import java.util.List;
 
-public class Graph<T> {
+public class Graph<T>{
 
-    HashMap<T , List<T>> graph = new HashMap<T, List<T>>();
+   HashMap<T,LinkedList<T>> map;
 
-    public void addVertex(T node){
-        graph.put(node,new LinkedList<T>());
-    }
+   public Graph(){
+       map  = new HashMap<>();
+   }
 
-    public void addEdge(T source, T destination, boolean biDirectional) {
-        if (!graph.containsKey(source)) {
-            addVertex(source);
-        }
+   public void addItem(T key){
+       map.put(key,new LinkedList<T>());
+   }
 
-        if (!graph.containsKey(destination)) {
-            addVertex(destination);
-        }
-
-        graph.get(source).add(destination);
-        if(biDirectional == true) {
-            graph.get(destination).add(source);
-        }
-    }
-
-    public void printGraph(){
-        System.out.println(graph);
-    }
+   public void printGraph(){
+       System.out.println(map);
+   }
 
 
 
