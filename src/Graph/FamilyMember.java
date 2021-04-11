@@ -9,6 +9,16 @@ public class FamilyMember {
     }
 
 
+    public boolean equals(Object obj){
+        FamilyMember f = (FamilyMember) obj;
+
+        if(this.firstName != f.firstName){
+            return false;
+        }
+        return true;
+    }
+
+
     @Override
     public String toString() {
         return firstName;

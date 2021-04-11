@@ -2,27 +2,28 @@ package Graph;
 
 
 import java.util.HashMap;
+import java.util.Map;
 import java.util.LinkedList;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        Graph graph = new Graph();
-        graph.addItem(new FamilyMember("Ac"));
-        graph.addItem(new FamilyMember("Draku"));
-        graph.addItem(new FamilyMember("Mouse"));
 
-        HashMap<String, LinkedList<FamilyMember>> map = new HashMap<String, LinkedList<FamilyMember>>();
+        Map <FamilyMember, LinkedList<FamilyMember>> map = new HashMap<>();
 
-        map.put("Ac",new LinkedList<FamilyMember>());
-        map.put("Draku",new LinkedList<FamilyMember>());
+        map.put(new FamilyMember("Ac"),new LinkedList<FamilyMember>());
+        map.put(new FamilyMember("Draku"),new LinkedList<FamilyMember>());
+        map.put(new FamilyMember("Ac"),new LinkedList<FamilyMember>());
 
+        FamilyMember temp = new FamilyMember("Ac");
 
-        if(map.containsKey("Ac")){
-            System.out.println(map.get("Ac"));
+        if(map.containsKey(temp)){
+            System.out.println("works");
         }else {
-            System.out.println("fails");
+            System.out.println("f");
         }
+
+
     }
 }
