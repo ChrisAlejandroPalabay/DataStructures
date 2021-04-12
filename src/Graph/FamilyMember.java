@@ -9,13 +9,18 @@ public class FamilyMember {
     }
 
 
-    public boolean equals(Object obj){
-        FamilyMember f = (FamilyMember) obj;
+    @Override
+    public int hashCode() {
+        return firstName.hashCode();
+    }
 
-        if(this.firstName != f.firstName){
-            return false;
-        }
-        return true;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null) return false;
+        if (this.getClass() != o.getClass()) return false;
+        FamilyMember fm = (FamilyMember) o;
+        return firstName == fm.firstName;
     }
 
 

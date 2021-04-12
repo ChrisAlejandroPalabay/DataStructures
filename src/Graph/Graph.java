@@ -7,30 +7,22 @@ import java.util.LinkedList;
 
 public class Graph<T>{
 
-   HashMap<T,LinkedList<T>> map;
+    private HashMap<T, LinkedList<T>> graph = new HashMap<>();
 
-   public Graph(){
-       map  = new HashMap<>();
-   }
-
-   public void addItem(T key){
-       map.put(key,new LinkedList<T>());
-   }
-
-   public void printGraph(){
-       System.out.println(map);
-   }
+    public void addVertex(T vertex, T desti){
+        graph.put(vertex, new LinkedList<T>());
+        graph.get(0).add(desti);
+    }
 
 
+    public void print(){
+
+        System.out.println();
 
 
+    }
 
-
-
-
-
-
-
+}
 
     /**
     ArrayList<ArrayList<Node>> adjlist;
@@ -60,4 +52,3 @@ public class Graph<T>{
         System.out.println(adjlist.get(0).get(1));
     }
      **/
-}
