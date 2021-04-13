@@ -2,53 +2,41 @@ package Graph;
 
 
 
-import java.util.HashMap;
-import java.util.LinkedList;
+import java.util.*;
 
 public class Graph<T>{
 
-    private HashMap<T, LinkedList<T>> graph = new HashMap<>();
+    private Map<T, List<T>> graph = new HashMap<>();
 
-    public void addVertex(T vertex, T desti){
-        graph.put(vertex, new LinkedList<T>());
-        graph.get(0).add(desti);
-    }
-
-
-    public void print(){
-
-        System.out.println();
-
-
-    }
-
-}
-
-    /**
-    ArrayList<ArrayList<Node>> adjlist;
-
-
-    public Graph(){
-        adjlist = new ArrayList<ArrayList<Node>>();
-    }
-
-    public void addPerson(Node node){
-        ArrayList<Node> branch = new ArrayList<Node>();
-        branch.add(node);
-        adjlist.add(branch);
-    }
-
-    public void addRelation(T source, T destination){
-        for(int i=0;i < adjlist.size();i++){
-            if(adjlist.get(i).get(0).data == source ){
-                adjlist.get(i).add(new Node(destination));
-            }
+    public void addEdge(T source, T destination, boolean biDirectional) {
+        if (!graph.containsKey(source)) {
+            addVertex(source);
         }
 
+        if (!graph.containsKey(destination)) {
+            addVertex(destination);
+        }
+
+        graph.get(source).add(destination);
+        if(biDirectional == true) {
+            graph.get(destination).add(source);
+        }
     }
 
-    public void displayGraph(){
-        System.out.println(adjlist.get(0).get(0));
-        System.out.println(adjlist.get(0).get(1));
+    public String printGraph() {
+        StringBuilder builder = new StringBuilder();
+
+        for(T vertex : graph.keySet()) {
+            builder.append(vertex.toString() + ": ");
+            for(T node: graph.get(vertex)) {
+                builder.append(node.toString() + " ");
+            }
+            builder.append("\n");
+        }
+        return builder.toString();
     }
-     **/
+
+    private void addVertex(T vertex) {
+        graph.put(vertex, new LinkedList<T>());
+    }
+}
