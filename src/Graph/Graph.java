@@ -6,37 +6,36 @@ import java.util.*;
 
 public class Graph<T>{
 
-    private Map<T, List<T>> graph = new HashMap<>();
+    private HashMap<T,LinkedList<T>> graph;
 
-    public void addEdge(T source, T destination, boolean biDirectional) {
-        if (!graph.containsKey(source)) {
+    public Graph(){
+        graph = new HashMap<>();
+    }
+
+
+    public void addEdge(T source,T destination, boolean biConditional){
+
+        if (!graph.containsKey(source)){
             addVertex(source);
         }
 
-        if (!graph.containsKey(destination)) {
+        if (!graph.containsKey(destination)){
             addVertex(destination);
         }
 
-        graph.get(source).add(destination);
-        if(biDirectional == true) {
+        if (biConditional == true){
+            graph.get(source).add(destination);
             graph.get(destination).add(source);
+        }else {
+            graph.get(source).add(destination);
         }
     }
 
-    public String printGraph() {
-        StringBuilder builder = new StringBuilder();
-
-        for(T vertex : graph.keySet()) {
-            builder.append(vertex.toString() + ": ");
-            for(T node: graph.get(vertex)) {
-                builder.append(node.toString() + " ");
-            }
-            builder.append("\n");
-        }
-        return builder.toString();
+    public void print(){
+        System.out.println(graph);
     }
 
-    private void addVertex(T vertex) {
-        graph.put(vertex, new LinkedList<T>());
+    private void addVertex(T vertex){
+        graph.put(vertex,new LinkedList<T>());
     }
 }
