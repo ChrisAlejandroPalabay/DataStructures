@@ -31,8 +31,12 @@ public class Graph<T>{
         }
     }
 
-    public void print(){
-        System.out.println(graph);
+    public void print(T object){
+        if(graph.containsKey(object)){
+            System.out.println(graph.get(object));
+        }else{
+            System.out.println("Object not found");
+        }
     }
 
     private void addVertex(T vertex){

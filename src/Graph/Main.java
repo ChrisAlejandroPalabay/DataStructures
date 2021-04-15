@@ -13,7 +13,7 @@ public class Main {
         graph.addEdge(new FamilyMember("Paul"),new FamilyMember("Jake"),true);
         graph.addEdge(new FamilyMember("Paul"),new FamilyMember("Ac"),true);
 
-        graph.print();
+        graph.print(new FamilyMember("A"));
 
     }
 }
