@@ -31,13 +31,19 @@ public class Graph<T>{
         }
     }
 
-    public void print(T object){
-        if(graph.containsKey(object)){
-            System.out.println(graph.get(object));
-        }else{
-            System.out.println("Object not found");
+    public String printGraph() {
+        StringBuilder builder = new StringBuilder();
+
+        for(T vertex : graph.keySet()) {
+            builder.append(vertex.toString() + ": ");
+            for(T node: graph.get(vertex)) {
+                builder.append(node.toString() + " ");
+            }
+            builder.append("\n");
         }
+        return builder.toString();
     }
+
 
     private void addVertex(T vertex){
         graph.put(vertex,new LinkedList<T>());
