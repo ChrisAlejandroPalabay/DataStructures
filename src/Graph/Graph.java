@@ -31,6 +31,19 @@ public class Graph<T>{
         }
     }
 
+    public void searchPerson(T person){
+        if(graph.containsKey(person)){
+            System.out.println("Person Exists, having connections with");
+            System.out.println(graph.get(person));
+        }else{
+            System.out.println("Person does not exist!");
+        }
+    }
+
+    private void addVertex(T vertex){
+        graph.put(vertex,new LinkedList<T>());
+    }
+
     public String printGraph() {
         StringBuilder builder = new StringBuilder();
 
@@ -45,7 +58,5 @@ public class Graph<T>{
     }
 
 
-    private void addVertex(T vertex){
-        graph.put(vertex,new LinkedList<T>());
-    }
+
 }
