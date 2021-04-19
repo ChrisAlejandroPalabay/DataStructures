@@ -9,11 +9,7 @@ public class Main {
 
         Graph graph = new Graph();
 
-        graph.addEdge(new FamilyMember("Ac"),new FamilyMember("Chris"),true);
-        graph.addEdge(new FamilyMember("Paul"),new FamilyMember("Jake"),true);
-        graph.addEdge(new FamilyMember("Paul"),new FamilyMember("Ac"),true);
-
-        graph.searchPerson(new FamilyMember("Ac"));
+        graph.addAndPrint(new FamilyMember("Ac"),new FamilyMember("Aundreae"));
 
     }
 }
