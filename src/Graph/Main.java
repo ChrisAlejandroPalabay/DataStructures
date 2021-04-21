@@ -8,8 +8,12 @@ public class Main {
 
 
         Graph graph = new Graph();
+        graph.addFamilymember(new FamilyMember("Ac"));
+        graph.addFather(new FamilyMember("Ac"),new FamilyMember("Draku"));
+        graph.addChild(new FamilyMember("Ac"),new FamilyMember("Nicole"));
+        graph.addChild(new FamilyMember("Ac"),new FamilyMember("Nicole"));
 
-        graph.addAndPrint(new FamilyMember("Ac"),new FamilyMember("Aundreae"));
 
+        graph.print();
     }
 }
