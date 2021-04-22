@@ -28,6 +28,10 @@ public class Graph<T>{
         if(graph.containsKey(person)) {
             if(!graph.get(person).containsKey("Father")){
                 graph.get(person).put("Father",father);
+                if(!graph.containsKey(father)){
+                    addFamilymember(father);
+                    addChild(father,person);
+                }
             }else{
                 System.out.println("Father already exist!");
             }
