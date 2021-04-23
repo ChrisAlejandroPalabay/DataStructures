@@ -44,6 +44,10 @@ public class Graph<T>{
         if(graph.containsKey(person)) {
             if(!graph.get(person).containsKey("Child")){
                 graph.get(person).put("Child",child);
+                if(!graph.containsKey(child)){
+                    addFamilymember(child);
+                    addChild(child,person);
+                }
             }else{
                 System.out.println("Child already exist!");
             }

@@ -11,7 +11,7 @@ public class Main {
         graph.addFamilymember(new FamilyMember("Ac"));
         graph.addFather(new FamilyMember("Ac"),new FamilyMember("Draku"));
         graph.addChild(new FamilyMember("Ac"),new FamilyMember("Nicole"));
-        
+
 
 
         graph.print();
