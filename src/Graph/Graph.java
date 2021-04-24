@@ -25,19 +25,24 @@ public class Graph<T>{
     }
 
     public void addFather(T person, T father){
-        if(graph.containsKey(person)) {
-            if(!graph.get(person).containsKey("Father")){
-                graph.get(person).put("Father",father);
-                if(!graph.containsKey(father)){
-                    addFamilymember(father);
-                    addChild(father,person);
+        if(graph != null){
+            if(graph.containsKey(person)) {
+                if(!graph.get(person).containsKey("Father")){
+                    graph.get(person).put("Father",father);
+                    if(!graph.containsKey(father)){
+                        addFamilymember(father);
+                        addChild(father,person);
+                    }
+                }else{
+                    System.out.println("Father already exist!");
                 }
-            }else{
-                System.out.println("Father already exist!");
+            }else {
+                System.out.println("Person does not exist!");
             }
-        }else {
-            System.out.println("Person does not exist!");
+        }else{
+            System.out.println("There are no members in the family");
         }
+
     }
 
     public void addChild(T person, T child){
