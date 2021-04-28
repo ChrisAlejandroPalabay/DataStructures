@@ -45,6 +45,27 @@ public class Graph<T>{
 
     }
 
+    public void addMother(T person, T mother){
+        if(graph != null){
+            if(graph.containsKey(person)) {
+                if(!graph.get(person).containsKey("Mother")){
+                    graph.get(person).put("Mother",mother);
+                    if(!graph.containsKey(mother)){
+                        addFamilymember(mother);
+                        addChild(mother,person);
+                    }
+                }else{
+                    System.out.println("Mother already exist!");
+                }
+            }else {
+                System.out.println("Person does not exist!");
+            }
+        }else{
+            System.out.println("There are no members in the family");
+        }
+
+    }
+
     public void addChild(T person, T child){
         if(graph.containsKey(person)) {
             if(!graph.get(person).containsKey("Child")){
@@ -60,6 +81,7 @@ public class Graph<T>{
             System.out.println("Person does not exist!");
         }
     }
+
 
 
 
