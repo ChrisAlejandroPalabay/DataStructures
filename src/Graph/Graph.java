@@ -25,63 +25,10 @@ public class Graph<T>{
     }
 
     public void addFather(T person, T father){
-        if(graph != null){
-            if(graph.containsKey(person)) {
-                if(!graph.get(person).containsKey("Father")){
-                    graph.get(person).put("Father",father);
-                    if(!graph.containsKey(father)){
-                        addFamilymember(father);
-                        addChild(father,person);
-                    }
-                }else{
-                    System.out.println("Father already exist!");
-                }
-            }else {
-                System.out.println("Person does not exist!");
-            }
-        }else{
-            System.out.println("There are no members in the family");
-        }
-
-    }
-
-    public void addMother(T person, T mother){
-        if(graph != null){
-            if(graph.containsKey(person)) {
-                if(!graph.get(person).containsKey("Mother")){
-                    graph.get(person).put("Mother",mother);
-                    if(!graph.containsKey(mother)){
-                        addFamilymember(mother);
-                        addChild(mother,person);
-                    }
-                }else{
-                    System.out.println("Mother already exist!");
-                }
-            }else {
-                System.out.println("Person does not exist!");
-            }
-        }else{
-            System.out.println("There are no members in the family");
-        }
-
-    }
-
-    public void addChild(T person, T child){
-        if(graph.containsKey(person)) {
-            if(!graph.get(person).containsKey("Child")){
-                graph.get(person).put("Child",child);
-                if(!graph.containsKey(child)){
-                    addFamilymember(child);
-                    addChild(child,person);
-                }
-            }else{
-                System.out.println("Child already exist!");
-            }
-        }else {
-            System.out.println("Person does not exist!");
+        if(graph.get(person).containsKey("Father")){
+            System.out.println("Father already exist");
         }
     }
-
 
 
 
