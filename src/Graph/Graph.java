@@ -33,10 +33,7 @@ public class Graph<T>{
         if(graph.containsKey(source) && graph.containsKey(father)){
             if(!graph.get(source).containsKey("Father")){
                 graph.get(source).put("Father",father);
-
-                if(graph.get(source).containsKey("Sibling")){
-                    
-                }
+                addChild(father,source);
             }else {
                 System.out.println(" Father already exist!");
             }
@@ -46,7 +43,20 @@ public class Graph<T>{
         }
     }
 
+    public void addChild(T source, T child){
+        if(graph.containsKey(source) && graph.containsKey(child)){
+            graph.get(source).put("Child",child);
+        }else {
+            System.out.println("Person Does not exist!");
+        }
+    }
+
     public void print(){
+        System.out.println();
+
+        T father = graph.get(new FamilyMember("Ac")).get("Father");
+
+        graph.get(new FamilyMember("Draku")).put("Father",father);
         System.out.println(graph);
     }
 
