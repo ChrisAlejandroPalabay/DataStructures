@@ -20,6 +20,7 @@ public class Main {
         graph.addSibling(new FamilyMember("Ac"),new FamilyMember("Draku"));
         graph.addFather(new FamilyMember("Ac"),new FamilyMember("Chris"));
         graph.addMother(new FamilyMember("Ac"),new FamilyMember("Charcoal"));
-        graph.print();
+
+        System.out.println(graph.print());
     }
 }

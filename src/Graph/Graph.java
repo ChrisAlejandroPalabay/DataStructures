@@ -64,12 +64,15 @@ public class Graph<T>{
         }
     }
 
-    public void print(){
+    public String print(){
 
-        Collection<HashMap<String,T>> value = graph.values();
-        for (HashMap<String,T> key: value){
-            System.out.println(key);
+        StringBuilder builder = new StringBuilder();
+
+        for(T vertex : graph.keySet()) {
+            builder.append(vertex.toString() + ": ");
+            builder.append("\n");
         }
+        return builder.toString();
 
     }
 
