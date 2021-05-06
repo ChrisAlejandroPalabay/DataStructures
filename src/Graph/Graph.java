@@ -35,11 +35,24 @@ public class Graph<T>{
                 graph.get(source).put("Father",father);
                 addChild(father,source);
             }else {
-                System.out.println(" Father already exist!");
+                System.out.println("Father already exist!");
             }
 
         }else {
             System.out.println("Person does not exist!");
+        }
+    }
+
+    public void addMother(T source, T mother){
+        if(graph.containsKey(source) && graph.containsKey(mother)){
+            if(!graph.get(source).containsKey("Mother")){
+                graph.get(source).put("Mother",mother);
+                graph.get(mother).put("Child",source);
+            }else {
+                System.out.println("Mother already exist!");
+            }
+        }else {
+            System.out.println("Person does not exist");
         }
     }
 
@@ -52,12 +65,12 @@ public class Graph<T>{
     }
 
     public void print(){
-        System.out.println();
 
-        T father = graph.get(new FamilyMember("Ac")).get("Father");
+        Collection<HashMap<String,T>> value = graph.values();
+        for (HashMap<String,T> key: value){
+            System.out.println(key);
+        }
 
-        graph.get(new FamilyMember("Draku")).put("Father",father);
-        System.out.println(graph);
     }
 
 
