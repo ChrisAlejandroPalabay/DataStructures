@@ -71,6 +71,9 @@ public class Graph<T>{
         for(T vertex : graph.keySet()) {
             builder.append(vertex.toString() + ": ");
             builder.append("\n");
+            for(String a : graph.get(vertex).keySet()){
+                builder.append(a);
+            }
         }
         return builder.toString();
 
