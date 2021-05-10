@@ -70,10 +70,14 @@ public class Graph<T>{
 
         for(T vertex : graph.keySet()) {
             builder.append(vertex.toString() + ": ");
-            builder.append("\n");
             for(String a : graph.get(vertex).keySet()){
-                builder.append(a);
+                builder.append(a + "=");
+                for(T person: graph.get(vertex).values()){
+                    builder.append(person);
+                    builder.append("\n");
+                }
             }
+            builder.append("\n");
         }
         return builder.toString();
 
