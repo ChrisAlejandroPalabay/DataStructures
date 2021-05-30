@@ -1,23 +1,19 @@
 package Graph;
 
+import com.google.common.collect.ArrayListMultimap;
+import com.google.common.collect.Multimap;
+
 public class builder {
 
     public static void main(String[] args) {
 
-        StringBuilder builder = new StringBuilder();
 
-        int[] array = new int[10];
+        Multimap<String,String> map = ArrayListMultimap.create();
+        map.put("Me","Ac");
+        map.put("Me","Draku");
+        map.put("Me","Charcoal");
 
-        for(int i=0;i < 5;i++){
-            array[i] = i;
-            System.out.println(array[i]);
-            builder.append(array[i]);
-        }
-
-        builder.append("Ac");
-        System.out.println(builder);
-
-
-
+        
+        System.out.println(map.get("Me"));
     }
 }
