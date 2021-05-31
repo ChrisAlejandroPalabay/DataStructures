@@ -13,12 +13,7 @@ public class Main {
 
         graph.addSibling(new FamilyMember("Ac"),new FamilyMember("Draku"));
         graph.addSibling(new FamilyMember("Ac"),new FamilyMember("Charcoal"));
-
-        graph.addSibling(new FamilyMember("Draku"),new FamilyMember("Ac"));
-        graph.addSibling(new FamilyMember("Draku"),new FamilyMember("Charcoal"));
-
-        graph.addSibling(new FamilyMember("Charcoal"),new FamilyMember("Draku"));
-        graph.addSibling(new FamilyMember("Charcoal"),new FamilyMember("Ac"));
+        graph.addSibling(new FamilyMember("Ac"),new FamilyMember("Charcoal"));
 
 
         System.out.println(graph.print());

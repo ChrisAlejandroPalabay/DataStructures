@@ -27,7 +27,11 @@ public class Graph<T> {
 
     public void addSibling(T source, T sibling) {
         if(map.containsKey(source) && map.containsKey(sibling)){
-            map.get(source).put("Sibling", sibling);
+            if(!getValues(source).contains(sibling)){
+                map.get(source).put("Sibling",sibling);
+            }else {
+                System.out.println("Person already a relative");
+            }
         }else{
             System.out.println("Person does not exist!");
         }
@@ -51,8 +55,10 @@ public class Graph<T> {
         return builder.toString();
     }
 
-
-
+    public Collection<T> getValues(T person){
+        Collection values = map.get(person).values();
+        return values;
+    }
 
 }
 
