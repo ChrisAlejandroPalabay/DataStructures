@@ -27,7 +27,7 @@ public class Graph<T> {
 
     public void addSibling(T source, T sibling) {
         if(map.containsKey(source) && map.containsKey(sibling)){
-            if(!getValues(source).contains(sibling)){
+            if(!checkRelatives(source).contains(sibling)){
                 map.get(source).put("Sibling",sibling);
             }else {
                 System.out.println("Person already a relative");
@@ -38,14 +38,14 @@ public class Graph<T> {
     }
 
 
-    public String print(){
+    public String printTree(){
         StringBuilder builder = new StringBuilder();
         for(T person: map.keySet()){
             builder.append(person + "\n");
             for(String value: map.get(person).keySet()){
-                builder.append("         " + value + ":\n");
+                builder.append("        " + value + ":\n");
                 for(T v: map.get(person).get(value)){
-                    builder.append("           " + v + "\n");
+                    builder.append("         * " + v + "\n");
                 }
             }
             builder.append("\n");
@@ -55,10 +55,25 @@ public class Graph<T> {
         return builder.toString();
     }
 
-    public Collection<T> getValues(T person){
+    public String printFamily(T person){
+        StringBuilder builder = new StringBuilder();
+        builder.append(person +"'s Family"+ "\n");
+        for(String v:map.get(person).keySet()){
+            builder.append("       "+ v + "\n");
+            for (T p1: map.get(person).get(v)){
+                builder.append("          * " + p1 + "\n");
+            }
+            builder.append("\n");
+        }
+        return builder.toString();
+    }
+
+    private Collection<T> checkRelatives(T person){
         Collection values = map.get(person).values();
         return values;
     }
+
+
 
 }
 
