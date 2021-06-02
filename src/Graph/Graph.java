@@ -25,17 +25,43 @@ public class Graph<T> {
         }
     }
 
-    public void addSibling(T source, T sibling) {
-        if(map.containsKey(source) && map.containsKey(sibling)){
-            if(!checkRelatives(source).contains(sibling)){
-                map.get(source).put("Sibling",sibling);
+    public void addSibling(T person1, T person2) {
+        if(map.containsKey(person1) && map.containsKey(person2)){
+            if(!checkRelatives(person1).contains(person2)){
+                map.get(person1).put("Sibling",person2);
             }else {
-                System.out.println("Person already a relative");
+                System.out.println("Person already a sibling of "+ person1);
             }
         }else{
             System.out.println("Person does not exist!");
         }
     }
+
+    public void addMother(T person1, T person2){
+        if(map.containsKey(person1) && map.containsKey(person2)){
+            if(!checkRelatives(person1).contains(person2)){
+                map.get(person1).put("Mother",person2);
+            }else {
+                System.out.println("Person already a mother of "+ person1);
+            }
+        }else{
+            System.out.println("Person does not exist!");
+        }
+    }
+
+    public void addFather(T person1,T person2){
+        if(map.containsKey(person1) && map.containsKey(person2)){
+            if(!checkRelatives(person1).contains(person2)){
+                map.get(person1).put("Father",person2);
+            }else {
+                System.out.println("Person already a father of "+ person1);
+            }
+        }else{
+            System.out.println("Person does not exist!");
+        }
+
+    }
+
 
 
     public String printTree(){
@@ -71,6 +97,10 @@ public class Graph<T> {
     private Collection<T> checkRelatives(T person){
         Collection values = map.get(person).values();
         return values;
+    }
+
+    private void connectFamily(T person1,T person2){
+
     }
 
 
