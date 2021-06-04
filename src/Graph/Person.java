@@ -1,18 +1,11 @@
 package Graph;
 
 public class Person  {
-    public String firstName;
-    public String LastName;
-    public boolean gender;
-    public String birthDay;
 
-    public Person(String firstName, String lastName, boolean gender, String bDay){
-
-        this.firstName = firstName;
-        this.LastName = lastName;
-        this.gender = gender;
-        this.birthDay = bDay;
-    }
+    private String firstName;
+    private String lastName;
+    private boolean gender;
+    private String birthDay;
 
     //setters
 
@@ -21,7 +14,7 @@ public class Person  {
     }
 
     public void setLastName(String lastName) {
-        LastName = lastName;
+        this.lastName = lastName;
     }
 
     public void setGender(boolean gender) {
@@ -40,7 +33,7 @@ public class Person  {
     }
 
     public String getLastName() {
-        return LastName;
+        return lastName;
     }
 
     public String getGender() {
@@ -55,6 +48,15 @@ public class Person  {
 
     public String getBirthDay() {
         return birthDay;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null) return false;
+        if (this.getClass() != o.getClass()) return false;
+        Person fm = (Person) o;
+        return firstName == fm.firstName;
     }
 
     @Override

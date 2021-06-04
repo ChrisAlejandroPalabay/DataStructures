@@ -1,6 +1,6 @@
 package Graph;
 
-public class FamilyMember {
+public class FamilyMember extends Person{
     public String firstName;
 
 
