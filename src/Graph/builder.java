@@ -11,6 +11,9 @@ public class builder {
     public static void main(String[] args) {
 
 
+        FamilyMember ac =  new FamilyMember("Ac", "Palabay",true,"07/10/99");
+
+        System.out.println(ac.toString());
 
 
     }

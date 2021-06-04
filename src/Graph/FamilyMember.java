@@ -1,11 +1,55 @@
 package Graph;
 
-public class FamilyMember extends Person{
+public class FamilyMember{
     public String firstName;
+    public String lastName;
+    public boolean gender;
+    public String birthDay;
 
 
-    public FamilyMember(String fname){
+    public FamilyMember(String fname, String lName,boolean g,String bday){
         this.firstName = fname;
+        this.lastName = lName;
+        this.gender = g;
+        this.birthDay = bday;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setGender(boolean gender) {
+        this.gender = gender;
+    }
+
+    public void setBirthDay(String birthDay) {
+        this.birthDay = birthDay;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getGender() {
+        String gender = "Male";
+        if(this.gender == true){
+            gender = "Male";
+        }else {
+            gender = "Female";
+        }
+        return gender;
+    }
+
+    public String getBirthDay() {
+        return birthDay;
     }
 
 
@@ -26,6 +70,6 @@ public class FamilyMember extends Person{
 
     @Override
     public String toString() {
-        return firstName;
+        return this.firstName + " " + this.lastName;
     }
 }
