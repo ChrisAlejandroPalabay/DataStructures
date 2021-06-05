@@ -11,11 +11,13 @@ public class builder {
     public static void main(String[] args) {
 
 
-        FamilyMember ac =  new FamilyMember("Ac", "Palabay",true,"07/10/99");
-
-        System.out.println(ac.toString());
+        System.out.println(res(1));
 
 
+    }
+
+    public static boolean res(int num){
+        return num > 10 || num == 1;
     }
 
 }
