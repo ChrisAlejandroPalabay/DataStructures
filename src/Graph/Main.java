@@ -9,19 +9,26 @@ public class Main {
 
         Family family = new Family();
 
-        family.addFamilyMember(new FamilyMember("Ac","Palabay",true,"07/10/99"));
-        family.addFamilyMember(new FamilyMember("Draku","Palabay",true,"07/10/99"));
-        family.addFamilyMember(new FamilyMember("Chris","Palabay",true,"07/10/99"));
+        family.addFamilyMember(new FamilyMember("Ac","Palabay"));
+        family.addFamilyMember(new FamilyMember("Draku","Palabay"));
+        family.addFamilyMember(new FamilyMember("Chris","Palabay"));
 
 
-        family.addSibling("Ac","Draku");
-        family.addSibling("Ac","Chris");
-        family.addSibling("Ac","Faul");
 
+        family.addSibling(person("Ac","Palabay"),person("Draku", "Palabay"));
+        family.addSibling(person("Draku","Palabay"),person("Ac", "Palabay"));
+        family.addSibling(person("Chris","Palabay"),person("Ac", "Palabay"));
+        System.out.println(family.printTree());
 
         System.out.println(family.printTree());
-        System.out.println(family.numberOfMembers());
 
+
+    }
+
+    public static FamilyMember person(String fname,String lname){
+
+        FamilyMember temp = new FamilyMember(fname,lname);
+        return temp;
     }
 
 

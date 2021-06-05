@@ -25,24 +25,15 @@ public class Family {
         }
     }
 
-    public void addSibling(String fname1, String fname2) {
-        int interations1 = 0;
-        int interations2 = 0;
-        for(FamilyMember f1: map.keySet()){
-            if(f1.firstName == fname1){
-                for (FamilyMember f2: map.keySet()){
-                    if(f2.firstName == fname2){
-                        map.get(f1).put("Sibling",f2);
-
-                    }else if(interations2 == map.size()){
-                        System.out.println("Person does not exist!");
-                    }
-                    interations2++;
-                }
-            }else if(interations1 == map.size()){
-                System.out.println("Person does not exist!");
+    public void addSibling(FamilyMember person1, FamilyMember person2) {
+        if(map.containsKey(person1) && map.containsKey(person2)){
+            if(!checkRelatives(person1).contains(person2)){
+                map.get(person1).put("Sibling",person2);
+            }else {
+                System.out.println("Person already a sibling of "+ person1);
             }
-            interations1++;
+        }else{
+            System.out.println("Person does not exist!");
         }
     }
 
@@ -107,8 +98,10 @@ public class Family {
         return values;
     }
 
-    public int numberOfMembers(){
-        return map.size();
-    }
+   
+
+
+
+
 
 }

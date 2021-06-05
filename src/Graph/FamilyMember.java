@@ -7,11 +7,10 @@ public class FamilyMember{
     public String birthDay;
 
 
-    public FamilyMember(String fname, String lName,boolean g,String bday){
+    public FamilyMember(String fname, String lName){
         this.firstName = fname;
         this.lastName = lName;
-        this.gender = g;
-        this.birthDay = bday;
+
     }
 
     public void setFirstName(String firstName) {
