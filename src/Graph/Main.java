@@ -11,16 +11,19 @@ public class Main {
 
         family.addFamilyMember(new FamilyMember("Ac","Palabay"));
         family.addFamilyMember(new FamilyMember("Draku","Palabay"));
-        family.addFamilyMember(new FamilyMember("Chris","Palabay"));
+        family.addFamilyMember(new FamilyMember("Charcoal","Palabay"));
+        family.addFamilyMember(new FamilyMember("Alejandro","Palabay"));
 
 
 
-        family.addSibling(person("Ac","Palabay"),person("Draku", "Palabay"));
-        family.addSibling(person("Draku","Palabay"),person("Ac", "Palabay"));
-        family.addSibling(person("Chris","Palabay"),person("Ac", "Palabay"));
+        family.addMother(person("Ac","Palabay"),person("Charcoal", "Palabay"));
+        family.addFather(person("Ac","Palabay"),person("Draku", "Palabay"));
+        family.addSibling(person("Ac","Palabay"),person("Alejandro", "Palabay"));
+        family.addChild(person("Draku","Palabay"),person("Ac", "Palabay"));
+        family.addChild(person("Charcoal","Palabay"),person("Ac", "Palabay"));
         System.out.println(family.printTree());
 
-        System.out.println(family.printTree());
+
 
 
     }

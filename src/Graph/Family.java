@@ -62,6 +62,37 @@ public class Family {
 
     }
 
+    public void addChild(FamilyMember person1, FamilyMember person2){
+        if(map.containsKey(person1) && map.containsKey(person2)){
+            if(!checkRelatives(person1).contains(person2)){
+                map.get(person1).put("Child",person2);
+            }else {
+                System.out.println("Person already a child of "+ person1);
+            }
+        }else{
+            System.out.println("Person does not exist!");
+        }
+    }
+
+    public void addPartner(FamilyMember person1,FamilyMember person2){
+        if(map.containsKey(person1) && map.containsKey(person2)){
+            if(!checkRelatives(person1).contains(person2)){
+                if(person1.gender != person2.gender){
+                    if(person1.gender == true){
+                        map.get(person1).put("Wife",person2);
+                    }else{
+                        map.get(person1).put("husband",person2);
+                    }
+                }else{
+                    System.out.println("Invalid gender");
+                }
+            }else {
+                System.out.println("Person already a partner of "+ person1);
+            }
+        }else{
+            System.out.println("Person does not exist!");
+        }    }
+
 
     public String printTree(){
         StringBuilder builder = new StringBuilder();
@@ -98,7 +129,7 @@ public class Family {
         return values;
     }
 
-   
+
 
 
 
