@@ -143,16 +143,21 @@ public class Family {
         return builder.toString();
     }
 
-    public String printFamily(FamilyMember person){
+    public String printFamily(String person){
         StringBuilder builder = new StringBuilder();
-        builder.append(person +"'s Family"+ "\n");
-        for(String v:map.get(person).keySet()){
-            builder.append("       "+ v + "\n");
-            for (String p1: map.get(person).get(v)){
-                builder.append("          * " + p1 + "\n");
+        if(map.containsKey(person)){
+            builder.append(person +"'s Family"+ "\n");
+            for(String v:map.get(person).keySet()){
+                builder.append("       "+ v + "\n");
+                for (String p1: map.get(person).get(v)){
+                    builder.append("          * " + p1 + "\n");
+                }
+                builder.append("\n");
             }
-            builder.append("\n");
+        }else {
+            System.out.println("Person does not exist!");
         }
+
         return builder.toString();
     }
 
