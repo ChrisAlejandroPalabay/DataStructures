@@ -9,7 +9,7 @@ import java.util.*;
 
 public class Family {
 
-    private HashMap<FamilyMember, Multimap<String, FamilyMember>> map;
+    private HashMap<String, Multimap<String, String>> map;
     public ArrayList<FamilyMember> familyMembers;
 
     public Family() {
@@ -22,13 +22,14 @@ public class Family {
         if(map.containsKey(person)){
             System.out.println("Person already exist!");
         }else {
-            Multimap<String,FamilyMember> temp = ArrayListMultimap.create();
-            map.put(person,temp);
+            Multimap<String,String> temp = ArrayListMultimap.create();
+            String name = person.firstName + " " + person.lastName;
+            map.put(name,temp);
             familyMembers.add(person);
         }
     }
 
-    public void addSibling(FamilyMember person1, FamilyMember person2) {
+    public void addSibling(String person1, String person2) {
         if(map.containsKey(person1) && map.containsKey(person2)){
             if(!checkRelatives(person1).contains(person2)){
                 map.get(person1).put("Sibling/s",person2);
@@ -41,7 +42,7 @@ public class Family {
         }
     }
 
-    public void addMother(FamilyMember person1, FamilyMember person2){
+    public void addMother(String person1, String person2){
         if(map.containsKey(person1) && map.containsKey(person2)){
             if(!checkRelatives(person1).contains(person2)){
                 map.get(person1).put("Mother",person2);
@@ -54,7 +55,7 @@ public class Family {
         }
     }
 
-    public void addFather(FamilyMember person1,FamilyMember person2){
+    public void addFather(String person1,String person2){
         if(map.containsKey(person1) && map.containsKey(person2)){
             if(!checkRelatives(person1).contains(person2)){
                 map.get(person1).put("Father",person2);
@@ -68,7 +69,7 @@ public class Family {
 
     }
 
-    public void addChild(FamilyMember person1, FamilyMember person2){
+    public void addChild(String person1, String person2){
         if(map.containsKey(person1) && map.containsKey(person2)){
             if(!checkRelatives(person1).contains(person2)){
                 map.get(person1).put("Child",person2);
@@ -85,11 +86,11 @@ public class Family {
         }
     }
 
-    public void addPartner(FamilyMember person1,FamilyMember person2){
+    public void addPartner(String person1,String person2){
         if(map.containsKey(person1) && map.containsKey(person2)){
             if(!checkRelatives(person1).contains(person2)){
-                if(person1.gender != person2.gender){
-                    if(person1.gender == true){
+                if(familyMembers.get(indexOf(person1)).gender != familyMembers.get(indexOf(person2)).gender){
+                    if(familyMembers.get(indexOf(person1)).gender == true){
                         map.get(person1).put("Wife",person2);
                         map.get(person2).put("Husband",person1);
                     }else{
@@ -107,12 +108,18 @@ public class Family {
         }
     }
 
+    public void gender(String person){
+        System.out.println(familyMembers.get(indexOf(person)).getFullName());
+        System.out.println(familyMembers.get(indexOf(person)).gender);
+    }
 
-    private int indexOf(FamilyMember person){
+
+    private int indexOf(String person){
         int res = 0;
-        for(int i=0;i > familyMembers.size();i++){
-            if(familyMembers.get(i).equals(person)){
+        for (int i=0;i < familyMembers.size();i++){
+            if(familyMembers.get(i).getFullName().equals(person)){
                 res = i;
+                break;
             }
         }
         return res;
@@ -121,11 +128,11 @@ public class Family {
 
     public String printTree(){
         StringBuilder builder = new StringBuilder();
-        for(FamilyMember person: map.keySet()){
+        for(String person: map.keySet()){
             builder.append(person + "\n");
             for(String value: map.get(person).keySet()){
                 builder.append("        " + value + ":\n");
-                for(FamilyMember v: map.get(person).get(value)){
+                for(String v: map.get(person).get(value)){
                     builder.append("         * " + v + "\n");
                 }
             }
@@ -141,7 +148,7 @@ public class Family {
         builder.append(person +"'s Family"+ "\n");
         for(String v:map.get(person).keySet()){
             builder.append("       "+ v + "\n");
-            for (FamilyMember p1: map.get(person).get(v)){
+            for (String p1: map.get(person).get(v)){
                 builder.append("          * " + p1 + "\n");
             }
             builder.append("\n");
@@ -149,7 +156,7 @@ public class Family {
         return builder.toString();
     }
 
-    private Collection checkRelatives(FamilyMember person){
+    private Collection checkRelatives(String person){
         Collection values = map.get(person).values();
         return values;
     }

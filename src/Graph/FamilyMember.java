@@ -30,6 +30,10 @@ public class FamilyMember{
         this.birthDay = birthDay;
     }
 
+    public String getFullName(){
+        return firstName +" "+ lastName;
+    }
+
     public String getFirstName() {
         return firstName;
     }

@@ -9,13 +9,12 @@ public class Main {
 
         Family family = new Family();
 
-        family.addFamilyMember(new FamilyMember("Ac","Palabay",true));
-        family.addFamilyMember(new FamilyMember("Mother","Palabay",false));
         family.addFamilyMember(new FamilyMember("Father","Palabay",true));
-        family.addFamilyMember(new FamilyMember("Alejandro","Palabay",true));
+        family.addFamilyMember(new FamilyMember("Mother","Palabay",false));
 
-        family.addPartner(person("Mother","Palabay",false),person("Father","Palabay",true));
 
+
+        family.addPartner("Mother Palabay","Father Palabay");
         System.out.println(family.printTree());
 
 

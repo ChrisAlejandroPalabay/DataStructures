@@ -14,13 +14,22 @@ public class builder {
 
 
         ArrayList<FamilyMember> fam = new ArrayList<>();
-//        fam.add(new FamilyMember("Ac","Palabay"));
-//        fam.add(new FamilyMember("Chris","Palabay"));
-//        fam.add(new FamilyMember("Alejandro","Palabay"));
-//        fam.add(new FamilyMember("Aundrea","Palabay"));
-//        fam.add(new FamilyMember("Nicole","Palabay"));
-//
-//        System.out.println(fam.get(inderOf(new FamilyMember("Aundrea","Palabay"),fam)));
+
+        FamilyMember p1 = new FamilyMember("Chirs","Palabay",true);
+        FamilyMember p2 = new FamilyMember("Alej","Palabay",true);
+        FamilyMember p3 = new FamilyMember("Josh","Palabay",true);
+        FamilyMember p4 = new FamilyMember("Ac","Palabay",true);
+
+        fam.add(p1);
+        fam.add(p2);
+        fam.add(p3);
+        fam.add(p4);
+
+        System.out.println(fam.get(inderOf(p3,fam)).getFullName());
+        System.out.println(fam.get(inderOf(p3,fam)).gender);
+
+        System.out.println(fam.get(inderOf(p1,fam)).getFullName());
+        System.out.println(fam.get(inderOf(p3,fam)).gender);
 
 
     }
@@ -34,10 +43,6 @@ public class builder {
             }
         }
         return res;
-    }
-
-    public static boolean res(int num){
-        return num > 10 || num == 1;
     }
 
 }
