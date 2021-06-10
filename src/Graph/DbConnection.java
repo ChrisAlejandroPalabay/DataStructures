@@ -14,10 +14,8 @@ public class DbConnection {
 
     public DbConnection(){
         try{
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            String url = "jdbc:mysql://localhost:3306/Family";
-            con = DriverManager.getConnection(url,"root","");
-            st = con.createStatement();
+            con = DriverManager.getConnection("jdbc:sqlite:family.db");
+            System.out.println("Connected");
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -25,16 +23,13 @@ public class DbConnection {
 
     public void getData(){
         try{
-            String query = "SELECT * FROM `FamilyMembers`";
+            String query = "SELECT * from familyMember";
+            st = con.createStatement();
             rs = st.executeQuery(query);
-            System.out.println("Records from db");
+            System.out.println("Records from Database");
             while(rs.next()){
                 String fname = rs.getString("firstName");
-                String lname = rs.getString("LastName");
-                String gender = rs.getString("gender");
-                String bday = rs.getString("birthday");
-
-                System.out.println(fname + " " + lname + " " + gender + " " + bday);
+                System.out.println(fname);
             }
         }catch (Exception e){
             e.printStackTrace();
